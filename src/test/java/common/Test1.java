@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class PetGetPositiveTests extends BaseTest {
+public class Test1 extends BaseTest {
 
 //    @ParameterizedTest(name = "Pet endpoint GET positive test #{0}")
 //    @ValueSource(ints = {1, 2, 3})
@@ -26,13 +26,13 @@ public class PetGetPositiveTests extends BaseTest {
 //    }
 
 
-    @ParameterizedTest(name = "GET by status negative test #{0}")
+    @ParameterizedTest(name = "test1 #{0}")
     @CsvSource({
             "1",
             "2",
             "3"
     })
-    public void userCanSearchAnyKeyword(int testId) {
+    public void test1(int testId) {
         open("https://google.com/ncr");
         $(By.name("q")).val("selenide").pressEnter();
         $$("#res .g").shouldHave(sizeGreaterThan(33));

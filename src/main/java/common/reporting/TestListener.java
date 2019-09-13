@@ -9,10 +9,8 @@ import java.util.Optional;
 
 public class TestListener implements TestWatcher{
 
-
     private Attachments attachment = new Attachments();
     private Logger log;
-
 
     @Override
     public void testDisabled(ExtensionContext context, Optional<String> reason) {
@@ -48,6 +46,4 @@ public class TestListener implements TestWatcher{
         attachment.addScreenshotToReport(context);
         LogInstance.resetLog();
     }
-
-
 }
