@@ -34,6 +34,7 @@ public class TestListener implements TestWatcher{
         attachment.getErrorTrace(cause);
         log.info(String.format("%s aborted", context.getDisplayName()));
         attachment.addLogsToReport(context);
+        attachment.addScreenshotToReport(context);
         LogInstance.resetLog();
     }
 

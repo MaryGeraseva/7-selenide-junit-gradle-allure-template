@@ -1,5 +1,6 @@
-package common;
+package examples;
 
+import common.BaseTest;
 import common.reporting.ReplaceCamelCase;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,7 +12,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
-public class Test2 extends BaseTest {
+public class Test3 extends BaseTest {
 
 //    @ParameterizedTest(name = "Pet endpoint GET positive test #{0}")
 //    @ValueSource(ints = {1, 2, 3})
@@ -23,16 +24,16 @@ public class Test2 extends BaseTest {
 //    }
 
 
-    @ParameterizedTest(name = "test2 #{0}")
+    @ParameterizedTest(name = "test3 #{0}")
     @CsvSource({
             "1",
             "2",
             "3"
     })
-    public void test2(int testId) {
+    public void test3(int testId) {
         open("https://google.com/ncr");
         $(By.name("q")).val("selenide").pressEnter();
-        $$("#res .g").shouldHave(sizeGreaterThan(33));
+        $$("#res .g").shouldHave(sizeGreaterThan(4));
         $("#res .g").shouldHave(text("selenide.org"));
     }
 }

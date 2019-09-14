@@ -1,7 +1,6 @@
-package common;
+package examples;
 
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
+import common.BaseTest;
 import common.reporting.ReplaceCamelCase;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,7 +8,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.id;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -35,7 +33,7 @@ public class Test1 extends BaseTest {
     public void test1(int testId) {
         open("https://google.com/ncr");
         $(By.name("q")).val("selenide").pressEnter();
-        $$("#res .g").shouldHave(sizeGreaterThan(33));
+        $$("#res .g").shouldHave(sizeGreaterThan(6));
         $("#res .g").shouldHave(text("selenide.org"));
     }
 }

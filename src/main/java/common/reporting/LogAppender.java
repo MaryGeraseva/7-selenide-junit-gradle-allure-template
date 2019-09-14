@@ -10,7 +10,7 @@ import java.io.File;
 
 public class LogAppender {
 
-    public static FileAppender fileAppenderConfig(TestInfo testInfo) {
+    protected static FileAppender fileAppenderConfig(TestInfo testInfo) {
 
         String path = getLogsFilePath(testInfo);
 
@@ -25,7 +25,7 @@ public class LogAppender {
         return appender;
     }
 
-    public static ConsoleAppender consoleAppenderConfig(){
+    protected static ConsoleAppender consoleAppenderConfig(){
         ConsoleAppender consoleAppender = new ConsoleAppender();
         consoleAppender.setLayout(new EnhancedPatternLayout("%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"));
         consoleAppender.setThreshold(Level.TRACE);
@@ -34,7 +34,7 @@ public class LogAppender {
         return consoleAppender;
     }
 
-    private static String getLogsFilePath(TestInfo testInfo) {
+    public static String getLogsFilePath(TestInfo testInfo) {
         return String.format("%s\\build\\reports\\logsByTestMethod\\%s\\%s.log",
                 System.getProperty("user.dir"), testInfo.getTestMethod().get().getName(), testInfo.getDisplayName());
     }

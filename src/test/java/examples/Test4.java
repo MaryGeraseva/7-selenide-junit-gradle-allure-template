@@ -1,5 +1,6 @@
-package common;
+package examples;
 
+import common.BaseTest;
 import common.reporting.ReplaceCamelCase;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.params.ParameterizedTest;
