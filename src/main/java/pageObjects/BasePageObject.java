@@ -1,42 +1,46 @@
 package pageObjects;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
-import common.reporting.LogInstance;
+import reporting.LogInstance;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Cookie;
-
-import static com.codeborne.selenide.Selenide.open;
 
 public class BasePageObject {
 
     private String url;
     public Logger log = LogInstance.getLogger();
 
-    @Step("open page")
-    public void openPage(String url) {
-        open(url);
-        log.info(String.format("opened page: %s", url));
+    public BasePageObject() {
     }
 
-    @Step("set cookie")
+    public BasePageObject(String url) {
+        this.url = url;
+    }
+
+    @Step("open page")
+    public void open() {
+        log.info(String.format("opening page: %s", url));
+        Selenide.open(url);
+    }
+
+    @Step("add cookie")
     public void addCookie(Cookie cookie) {
+        log.info(String.format("adding cookie: %s", cookie.getName()));
         WebDriverRunner.getWebDriver().manage().addCookie(cookie);
-        log.info(String.format("added cookie: %s", cookie.getName()));
     }
 
     @Step("get cookie")
     public String getCookie(String cookieName) {
-        String cookie = WebDriverRunner.getWebDriver().manage().getCookieNamed(cookieName).getValue();
         log.info("getting value of cookie: " + cookieName);
-        return cookie;
+        return WebDriverRunner.getWebDriver().manage().getCookieNamed(cookieName).getValue();
     }
 
     @Step("get html of page")
     public String getHtml() {
-        String html = WebDriverRunner.source();
-        log.info("got html of page");
-        return html;
+        log.info("getting html of page");
+        return WebDriverRunner.source();
     }
 
     public String getExpectedUrl() {

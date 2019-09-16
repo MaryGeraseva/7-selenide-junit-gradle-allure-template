@@ -1,4 +1,4 @@
-package common.reporting;
+package reporting;
 
 
 import org.apache.log4j.LogManager;

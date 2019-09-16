@@ -1,4 +1,4 @@
-package common.reporting;
+package reporting;
 
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Attachment;

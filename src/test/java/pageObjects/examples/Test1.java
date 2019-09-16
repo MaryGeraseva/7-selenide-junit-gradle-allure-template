@@ -1,7 +1,7 @@
-package examples;
+package pageObjects.examples;
 
 import common.BaseTest;
-import common.reporting.ReplaceCamelCase;
+import reporting.ReplaceCamelCase;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
