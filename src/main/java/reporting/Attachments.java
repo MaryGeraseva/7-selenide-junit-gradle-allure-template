@@ -19,8 +19,6 @@ import java.util.Date;
 
 public class Attachments {
 
-    private Logger log = LogInstance.getLogger();
-
     protected void addLogsToReport(ExtensionContext context) {
         try {
             attachLogsFile(context);
@@ -59,7 +57,8 @@ public class Attachments {
         return  ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     }
 
-    protected void getErrorTrace(Throwable cause) {
+    public void getErrorTrace(Throwable cause) {
+        Logger log = LogInstance.getLogger();
         log.error(cause.getMessage());
         String stackTrace = "\n\n";
         for (StackTraceElement element : cause.getStackTrace()) {

@@ -19,7 +19,7 @@ public class PositiveLogInTest extends BaseTest {
     @Step("positiveLogInTest started")
     @Description(value = "test checks logIn with correct user data")
     public void positiveLogInTest(int testId, String username, String password) {
-        ExtendedAssertions assertions = new ExtendedAssertions();
+//        ExtendedAssertions assertions = new ExtendedAssertions();
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.open();
         MainPage mainPage = welcomePage.clickOnMainPageLink();
@@ -38,7 +38,7 @@ public class PositiveLogInTest extends BaseTest {
     @Step("positiveLogInTest started")
     @Description(value = "test checks logIn with correct user data")
     public void negativeLogInTest(int testId, String username, String password) {
-        ExtendedAssertions assertions = new ExtendedAssertions();
+//        ExtendedAssertions assertions = new ExtendedAssertions();
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.open();
         MainPage mainPage = welcomePage.clickOnMainPageLink();

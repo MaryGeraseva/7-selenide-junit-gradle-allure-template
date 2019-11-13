@@ -30,7 +30,6 @@ public class LogAppender {
         consoleAppender.setLayout(new EnhancedPatternLayout("%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n"));
         consoleAppender.setThreshold(Level.TRACE);
         consoleAppender.activateOptions();
-
         return consoleAppender;
     }
 
